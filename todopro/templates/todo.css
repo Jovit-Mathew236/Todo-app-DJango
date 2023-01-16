@@ -6,7 +6,7 @@
 }
 
 body {
-    /* background-color: #2F7693; */
+    /* background-color: #C9CFDF; */
     color: #425C81;
     width: 100vw;
     margin: auto;
@@ -189,4 +189,59 @@ main {
     font-weight: 400;
     margin-right: -15vw;
     color: rgba(62, 62, 62, 0.84);
+}
+
+/* Responsiveness */
+
+@media only screen and (max-width: 1480px) {
+    .todo-container {
+        padding: 60px 10vw;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .todo-container {
+        padding: 60px 2vw;
+    }
+}
+
+@media only screen and (max-width: 700px) {
+    body {
+        background-image: url("https://images.pexels.com/photos/3473569/pexels-photo-3473569.jpeg?auto=compress&cs=tinysrgb&w=600");
+    }
+
+    .app {
+        flex-direction: column;
+    }
+
+    nav .nav-container .all-todos,
+    nav .nav-container .settings {
+        display: none;
+    }
+
+    nav {
+        min-height: unset;
+        width: unset;
+        background-color: transparent;
+    }
+
+    nav .nav-container {
+        height: unset;
+        padding: 60px 20px;
+    }
+
+    main {
+        width: unset;
+        border-radius: 20px 20px 0px 0px;
+    }
+
+    .todo-container {
+        padding: 60px 10vw;
+    }
+}
+
+@media only screen and (max-width: 400px) {
+    .todo-container {
+        padding: 60px 2vw;
+    }
 }
