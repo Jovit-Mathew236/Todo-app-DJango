@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
 from .models import Todos
 import time
 from datetime import datetime
@@ -14,8 +14,9 @@ date_string2 = time.strftime("%m-%d", named_tuple)
 def index(request):
     return render(request, 'index.html')
 
+
+@login_required(login_url='/')
 def todo(request):
-    # return HttpResponse("<h1>hi</h1>")
 
     todos = Todos.objects.all()
 
@@ -26,12 +27,7 @@ def todo(request):
 
         newTodo = Todos.objects.create(todo=search, time=time, status=False)
         newTodo.save()
-        # print(todoname)
-        # todoname = Todos()
-        # todoname.todo = search
-        # todoname.time = time
-        # todoname.status = False
-        # todos.append(todoname)
-        # print(len(todos))
-
+    else:
+        None
+    # print(user is None)
     return render(request, 'todo.html', {'todos': todos, 'time': time_string, 'date': dt.strftime('%A')+' '+date_string, 'date2': date_string2})
