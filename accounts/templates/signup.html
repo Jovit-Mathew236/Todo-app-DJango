@@ -19,17 +19,17 @@
             <form action="signup" method="post">
                 {% csrf_token %}
                 <label for="">First Name</label>
-                <input type="text" name="first_name" id="" placeholder="firstname">
+                <input type="text" name="first_name" id="" placeholder="firstname" required>
                 <label for="">Last Name</label>
-                <input type="text" name="last_name" id="" placeholder="lastname">
+                <input type="text" name="last_name" id="" placeholder="lastname" required>
                 <label for="">Username</label>
-                <input type="text" name="username" id="" placeholder="username">
+                <input type="text" name="username" id="" placeholder="username" required>
                 <label for="">Email</label>
-                <input type="emal" name="email" id="" placeholder="name@gmail.com">
+                <input type="emal" name="email" id="" placeholder="name@gmail.com" required>
                 <label for="">Password</label>
-                <input type="password" name="password1" id="">
+                <input type="password" name="password1" id="" required>
                 <label for="">Confirm password</label>
-                <input type="password" name="password2" id="">
+                <input type="password" name="password2" id="" required>
                 <button type="submit">Sign Up</button>
             </form>
             {% for message in messages %}

@@ -55,20 +55,14 @@
                     <p class="time-date">{{date}}</p>
                 </div>
                 <div class="container-todos">
-                    <form class="search-div" action="" method="POST">
+                    <form class="search-div" action="todo" method="POST" autocomplete="off">
                         {% csrf_token %}
                         <input type="search" class="search" name="search" id=""
-                            placeholder="What is your  decision now? ">
+                            placeholder="What is your  decision now? " required>
                         <!-- <div class="time-select"> -->
-                        <input type="date" class="date" min="2023-{{date2}}T00:00" name="date" id="">
-                        <input type="time" class="time" name="time" id="">
-                        <!-- <svg width="20" height="20" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M14.985 0C6.705 0 0 6.72 0 15C0 23.28 6.705 30 14.985 30C23.28 30 30 23.28 30 15C30 6.72 23.28 0 14.985 0ZM15 27C8.37 27 3 21.63 3 15C3 8.37 8.37 3 15 3C21.63 3 27 8.37 27 15C27 21.63 21.63 27 15 27ZM14.67 7.5H14.58C13.98 7.5 13.5 7.98 13.5 8.58V15.66C13.5 16.185 13.77 16.68 14.235 16.95L20.46 20.685C20.97 20.985 21.63 20.835 21.93 20.325C22.0053 20.2035 22.0554 20.0682 22.0773 19.9269C22.0992 19.7857 22.0925 19.6415 22.0575 19.503C22.0225 19.3644 21.96 19.2343 21.8737 19.1204C21.7873 19.0065 21.679 18.9111 21.555 18.84L15.75 15.39V8.58C15.75 7.98 15.27 7.5 14.67 7.5Z"
-                                fill="#425C81" />
-                        </svg> -->
-                        <!-- </div> -->
-                        <!-- <div class="add"> -->
+                        <input type="date" class="date" min="2023-{{date2}}T00:00" name="date" id="" required>
+                        <input type="time" class="time" name="time" id="" required>
+
                         <button class="add">
                             <svg width="20" height="20" viewBox="0 0 30 30" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">

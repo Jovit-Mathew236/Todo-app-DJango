@@ -19,11 +19,11 @@
                 {% csrf_token %}
 
                 <label for="">Username</label>
-                <input type="text" name="username" id="" placeholder="username">
+                <input type="text" name="username" id="" placeholder="username" required>
                 <label for="">Email</label>
-                <input type="emal" name="email" id="" placeholder="name@gmail.com">
+                <input type="emal" name="email" id="" placeholder="name@gmail.com" required> 
                 <label for="">Password</label>
-                <input type="password" name="password" id="">
+                <input type="password" name="password" id="" required>
                 <button type="submit">Sign In</button>
             </form>
             {% for message in messages %}
