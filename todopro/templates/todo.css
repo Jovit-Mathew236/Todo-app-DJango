@@ -73,6 +73,11 @@ nav {
     padding: 10px 20px;
     background: #C9CFDF;
     border-radius: 5px;
+    cursor: pointer;
+}
+.nav-container .all-todos .cat-todos a{
+    text-decoration: none;
+    color: unset;
 }
 
 .nav-container .settings {

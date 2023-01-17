@@ -24,11 +24,11 @@ def todo(request):
 
     if request.method == "POST":
         search = request.POST['search']
-        day = request.POST['date']
+        # day = request.POST['date']
         time = request.POST['time']
 
         newTodo = Todos.objects.create(
-            user_id=request.user.id, todo=search, day=day, time=time, status=False)
+            user_id=request.user.id, todo=search, time=time, status=False)
         newTodo.save()
     else:
         None
@@ -51,3 +51,13 @@ def todo_completed(request):
         None
 
     return render(request, 'todo.html', {'todos': todos, 'time': time_string, 'date': dt.strftime('%A')+' '+date_string, 'date2': date_string2})
+
+def completed_todo(request):
+    todos = Todos.objects.filter(user_id=request.user.id)
+    
+    return render(request, 'completedtodo.html',{'todos': todos, 'time': time_string, 'date': dt.strftime('%A')+' '+date_string, 'date2': date_string2})
+
+def expired_todo(request):
+    todos = Todos.objects.filter(user_id=request.user.id)
+    
+    return render(request, 'expired.html',{'todos': todos, 'time': time_string, 'date': dt.strftime('%A')+' '+date_string, 'date2': date_string2})
