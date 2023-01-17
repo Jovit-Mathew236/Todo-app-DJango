@@ -18,18 +18,35 @@ def index(request):
 
 
 @login_required(login_url='/')
-
 def todo(request):
 
-    todos = Todos.objects.filter(user_id = request.user.id)
+    todos = Todos.objects.filter(user_id=request.user.id)
 
     if request.method == "POST":
         search = request.POST['search']
         day = request.POST['date']
         time = request.POST['time']
 
-        newTodo = Todos.objects.create(user_id=request.user.id, todo=search,day=day , time=time, status=False)
+        newTodo = Todos.objects.create(
+            user_id=request.user.id, todo=search, day=day, time=time, status=False)
         newTodo.save()
+    else:
+        None
+
+    return render(request, 'todo.html', {'todos': todos, 'time': time_string, 'date': dt.strftime('%A')+' '+date_string, 'date2': date_string2})
+
+
+def todo_completed(request):
+
+    todos = Todos.objects.filter(user_id=request.user.id)
+
+    if request.method == "POST":
+        todoid = request.POST['todo-id']
+        statusState = request.POST['status']
+        print(todoid,statusState)
+        todoObj = Todos.objects.get(id=todoid)
+        todoObj.status = statusState
+        todoObj.save()
     else:
         None
 

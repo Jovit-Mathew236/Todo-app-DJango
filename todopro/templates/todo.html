@@ -76,11 +76,18 @@
                     </form>
                     <div class="todos">
                         {% for todo in todos %}
+                        {% if todo.status == True %}
+                        {% else %}
                         <div class="todo-div">
                             <p class="todo">{{todo.todo}}</p>
                             <p class="todo-time">{{todo.time}}</p>
-                            <input type="checkbox" name="" id="" {% if todo.status %} checked {% endif %}>
+                            <form action="todo_completed" method="POST">
+                                {% csrf_token %}
+                                <input type="hidden" name="todo-id" value="{{todo.id}}">
+                                <input type="checkbox" name="status" value="True" onchange="this.form.submit()">
+                            </form>
                         </div>
+                        {% endif %}
                         {% endfor %}
                     </div>
                 </div>
