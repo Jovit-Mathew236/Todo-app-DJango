@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container-todos">
+    <div class="todos">
+        {% for todo in todos %}
+        {% if todo.time < time %} <div class="todo-div">
+            <p class="todo">{{todo.todo}}</p>
+            <p class="todo-time">{{todo.time}}</p>
+            <form action="todo_completed" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="todo-id" value="{{todo.id}}">
+                <input type="checkbox" name="status" value="True" onchange="this.form.submit()">
+            </form>
+    </div>
+    {% else %}
+    {% endif %}
+    {% endfor %}
+</div>
+</div>
+
+{% endblock %}
